@@ -33,9 +33,9 @@ main(int argc, char *argv[]) {
     if (argc < 2 || argc > 3)        panic("Usage: %s file.wav [seconds]  # 0 seconds outputs header info only\n", argv[0]);
     if (!(fp = fopen(argv[1], "r"))) panic("Error: can't read file \"%s\"\n", argv[1]);
 
-    // Number of seconds of frame data to output
+    // Number of seconds of frame data to output [0 seconds will output basic header info and exit(0)]
     if (argc == 3) {
-        seconds = atoi(argv[2]);
+        seconds = (int)strtol(argv[2], (char **)NULL, 10); // seconds = atoi(argv[2]);
     }
 
     // Validate RIFF header
@@ -124,5 +124,5 @@ main(int argc, char *argv[]) {
     }
 
     fclose(fp);
-    exit(1);
+    exit(0);
 }
