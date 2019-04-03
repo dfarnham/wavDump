@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
-#include <math.h>
 
 /*
  * A simple WAVE data extractor to test my understanding of the format
@@ -17,7 +16,7 @@ void
 panic(const char *fmt, ...) {
     va_list vptr;
     va_start(vptr, fmt);
-    vfprintf (stderr, fmt, vptr);
+    vfprintf(stderr, fmt, vptr);
     va_end(vptr);
     exit(1);
 }
