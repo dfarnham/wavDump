@@ -85,11 +85,10 @@ main(int argc, char *argv[]) {
         // Read data size
         if (fread((void *)&dataSize, sizeof(int), 1, fp) != 1) panic("Error: can't read data size\n");
 
-        if (!strncmp(dataId, "data", 4)) {
-            break;
-        } else {
-            fseek(fp, dataSize, SEEK_CUR);
-        }
+        // Found it?
+        if (!strncmp(dataId, "data", 4)) break;
+
+        fseek(fp, dataSize, SEEK_CUR);
     }
 
     if (seconds == 0) {
