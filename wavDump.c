@@ -115,7 +115,7 @@ main(int argc, char *argv[]) {
         if (fread((void *)&leftChannel, sizeof(short), 1, fp) != 1) panic("Error: can't read left channel\n");
 
         // Read right channel
-        if (fread((void *)&rightChannel, sizeof(short), 1, fp) != 1) panic("Error: can't read left channel\n");
+        if (fread((void *)&rightChannel, sizeof(short), 1, fp) != 1) panic("Error: can't read right channel\n");
 
         frame++;
 
